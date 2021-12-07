@@ -12,6 +12,7 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && loca
 RUN apt-get -y install tzdata
 RUN apt-get -y install vim curl bison
 RUN apt-get -y install python python3
+RUN apt-get -y install python3-pip
 RUN apt-get -y install git
 RUN apt-get -y install binutils
 RUN apt-get -y install gcc-5 g++-5 gcc g++ pigz bzip2 bzr chrpath cpio diffstat gawk make texinfo wget
@@ -19,6 +20,8 @@ RUN apt-get -y install python-git python-github python-configparser python3-dist
 RUN apt-get -y install ostree squashfs-tools
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo-1 > /usr/bin/repo
 RUN chmod a+x /usr/bin/repo
+
+RUN pip3 install configparser pygithub gitpython
 
 # RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
 # RUN RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
